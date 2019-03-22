@@ -1,11 +1,21 @@
-// import React from 'react';
-
-// const Project = props => <div>Project</div>
-
-// export default Project;
-
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const Div = styled.div`
+    border: 1px solid black;
+    margin: auto;
+    padding: 10px;
+    width: 500px;
+`
+
+const Action = styled.div`
+    border: 1px solid grey;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+    width: 90%;
+`
 
 class Project extends React.Component {
     state = {
@@ -34,20 +44,20 @@ class Project extends React.Component {
 
     render() {
         return (
-            <div>
+            <Div>
                 <h1>{this.state.name}</h1>
                 <h2>{this.state.description}</h2>
                 <p>{`${this.state.completed}`}</p>
                 {
                     this.state.actions.map(action => (
-                        <div key={action.id}>
+                        <Action key={action.id}>
                             <h3>{action.description}</h3>
                             <p>{action.notes}</p>
                             <p>{`${action.completed}`}</p>
-                        </div>
+                        </Action>
                     ))
                 }
-            </div>
+            </Div>
         )
     }
 }
